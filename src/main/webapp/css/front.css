@@ -1,0 +1,39 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#main{
+    margin-left: 350px;
+    margin-top: 100px;
+    background-color: rgba(62,157,213,0.5);
+    width: 800px;
+    height:400px;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px #1D78BC;
+}
+body{
+    background-image: url("../image/beijing1.png");
+    background-size:cover;
+}
+.layui-form-item{
+    margin-top: 80px;
+}
+.layui-input{
+    float: left;
+    width: 500px;
+}
+#login{
+    margin-left: 50px;
+    float: left;
+    width: 100px;
+}
+.layui-nav{
+    margin-top: 0px;
+    float: left;
+    width: 800px;
+    background-color: rgba(62,157,213,0.5);
+    box-shadow: 10px 10px 10px #1D78BC;
+    border-radius: 30px;
+}

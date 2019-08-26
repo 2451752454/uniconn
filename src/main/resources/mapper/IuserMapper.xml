@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.unicon.mapper.IuserMapper">
+<!--	<insert id="resign" parameterType="com.unicon.entity.TB_USER">-->
+<!--<selectKey keyProperty="USERID" order="BEFORE"-->
+<!--		   resultType="com.unicon.entity.TB_USER">-->
+<!--	select SQ_USER.nextval from dual-->
+<!--</selectKey>-->
+<!--		insert into TB_USER-->
+<!--		(USERID,USERNAME,USERPASSWORD,ROLEID,USERSTATE,SEX,INTEREST,INTEREST1,PHONE,EMAIL,PATH)-->
+<!--		values(#{USERID,jdbcType=NUMERIC},#{USERNAME},#{USERPASSWORD},#{ROLEID},#{USERSTATE},#{SEX},#{INTEREST},#{INTEREST1},#{PHONE},#{EMAIL},#{PATH})-->
+<!--	</insert>-->
+	<select id="login" resultType="com.unicon.entity.TB_USER" parameterType="com.unicon.entity.TB_USER">
+    		select USERNAME,USERPASSWORD from TB_USER where USERNAME=#{USERNAME} and USERPASSWORD=#{USERPASSWORD}
+    	</select>
+<!--	<select id="findAll1" resultType="com.unicon.entity.MUEU" resultMap="menuRoleMap">-->
+<!--    		select tb_jurisdiction.jurisdictionid JURISDICTIONID, tb_jurisdiction.jurisdictionname JURISDICTIONNAME from TB_RJ, TB_JURISDICTION WHERE tb_rj.jurisdictionid = tb_jurisdiction.jurisdictionid and tb_rj.roleid = 1-->
+<!--    	</select>-->
+<!--	<resultMap type="com.unicon.entity.MUEU" id="menuRoleMap">-->
+<!--		<id property="JURISDICTIONID" column="JURISDICTIONID"/>-->
+<!--		<result column="JURISDICTIONNAME" property="JURISDICTIONNAME"/>-->
+<!--	</resultMap>-->
+<!--	<select id="findAll2" resultType="com.unicon.entity.MUEU" parameterType="com.unicon.entity.MUEU" resultMap="menuRoleMap1">-->
+<!--    		select tb_role.roleid ROLEID,tb_role.rolename ROLENAME,tb_jurisdiction.jurisdictionid JURISDICTIONID,tb_jurisdiction.jurisdictionname JURISDICTIONNAME,tb_menu.menuid MENUID,tb_menu.menuname MENUNAME,tb_menu.URL URL from TB_JM,TB_RJ,TB_ROLE,TB_JURISDICTION,TB_MENU WHERE tb_rj.roleid = tb_role.roleid AND tb_rj.jurisdictionid = tb_jurisdiction.jurisdictionid-->
+<!--			    AND tb_jm.jurisdictionid = tb_jurisdiction.jurisdictionid AND tb_jm.menuid = tb_menu.menuid and tb_role.roleid = #{ROLEID} and tb_jurisdiction.jurisdictionname like #{JURISDICTIONNAME} AND TB_JM.ROLE LIKE #{ROLEID}-->
+<!--    	</select>-->
+<!--	<resultMap type="com.unicon.entity.MUEU" id="menuRoleMap1">-->
+
+<!--	</resultMap>-->
+
+<!--	<select id="selectUsers" resultType="com.unicon.entity.TB_USER" parameterType="com.unicon.entity.TB_USER" resultMap="userRoleMap">-->
+<!--		select U.USERID,U.USERNAME,U.USERPASSWORD,U.ROLEID,U.USERSTATE,U.SEX,U.INTEREST,U.INTEREST1,U.PHONE,U.EMAIL,U.PATH,R.ROLENAME from TB_USER U,TB_ROLE R where U.ROLEID = R.ROLEID-->
+<!--		<if test="USERNAME!=null">-->
+<!--			and U.USERNAME=#{USERNAME}-->
+<!--		</if>-->
+<!--		<if test="USERPASSWORD!=null">-->
+<!--			and U.USERPASSWORD=#{USERPASSWORD}-->
+<!--		</if>-->
+<!--	</select>-->
+<!--<resultMap type="com.unicon.entity.TB_USER" id="userRoleMap">-->
+<!--	<id property="USERID" column="USERID"/>-->
+<!--	<result column="USERNAME" property="USERNAME"/>-->
+<!--	<result column="USERPASSWORD" property="USERPASSWORD"/>-->
+<!--	<association property="TB_ROLE" column="ROLEID" javaType="com.unicon.entity.TB_ROLE">-->
+<!--		<id property="ROLEID" column="ROLEID"/>-->
+<!--		<result column="ROLENAME" property="ROLENAME"/>-->
+<!--	</association>-->
+<!--</resultMap>-->
+</mapper>
