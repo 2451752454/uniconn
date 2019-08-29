@@ -50,7 +50,7 @@
                 application:${applicationScope.UNAME}
             </a>
             <dl class="layui-nav-child">
-              <dd><a href="">基本资料</a></dd>
+              <dd><a href="<%=path%>/jsp/personalinformation.jsp">基本资料</a></dd>
               <dd><a href="">安全设置</a></dd>
             </dl>
           </li>
@@ -62,6 +62,17 @@
         <div class="layui-side-scroll">
           <!-- 左侧导航区域（可配合layui已有的垂直导航)-->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">cx</a>
+                    <dl class="layui-nav-child">
+                        <dd> <a title="<%=path%>/jsp/back_login.jsp"  onclick="changeIframe(this)">登入</a></dd>
+                        <dd> <a title="<%=path%>/jsp/recharge.jsp"  onclick="changeIframe(this)">充值</a></dd>
+                        <dd> <a title="<%=path%>/jsp/personalinformation.jsp"  onclick="changeIframe(this)">修改信息</a></dd>
+                        <dd> <a title="<%=path%>/jsp/changepasswords.jsp"  onclick="changeIframe(this)">修改密码</a></dd>
+                    </dl>
+                </li>
+
+
                 <c:if test="${!empty(menu)}">
 <%--                    alert("11");--%>
                     <c:forEach items="${menu}" step="1" var = "i">
