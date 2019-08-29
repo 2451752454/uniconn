@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd ">
 
 
-	<context:component-scan base-package="com.unicon.action,com.unicon.biz,com.unicon.mapper,com.unicon.entity"/>
+	<context:component-scan base-package="com.unicon.action,com.unicon"/>
 		
 		<!-- mvc的注解驱动，通过它可以省去上面的两行bean的配置 -->
 	<mvc:annotation-driven/>

@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-	xmlns:util="http://www.springframework.org/schema/util"
-	xsi:schemaLocation="
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
@@ -12,203 +13,32 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd"
-	>
-	<!--数据库连接-->
-	<context:component-scan base-package="com.unicon.action,com.unicon.biz,com.unicon.mapper,com.unicon.entity"/>
-<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-<!--	<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>-->
-<!--	<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>-->
-<!--	<property name="username" value="C##UserJX190229"/>-->
-<!--	<property name="password" value="666666"/>-->
-	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-	<property name="url" value="jdbc:mysql://101.37.12.72:3306/unicon?serverTimezone=UTC"/>
-	<property name="username" value="root"/>
-	<property name="password" value="!Xyp2451752454"/>
-</bean>
-	<!--配置sqlSessionFactoryBean-->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
-		<property name="dataSource" ref="myDataSource"/>
-		<property name="mapperLocations" value="classpath:*/*.xml"/>
-	</bean>
-	<!--配置MapperScannerConfigurer-->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-<!--		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
-		<property name="basePackage" value="com.unicon.mapper"/>
-<!--		<property name="annotationClass" value="com.annotation.IUserDao1"/>-->
-	</bean>
-
-<!--	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />-->
-<!--	&lt;!&ndash; 事务管理 &ndash;&gt;-->
-<!--	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
-<!--		<property name="dataSource" ref="myDataSource"/>-->
-<!--		<property name="rollbackOnCommitFailure" value="true"/>-->
-<!--	</bean>-->
 
 
+>
+    <!--数据库连接-->
+    <context:component-scan base-package="com.unicon.action,com.unicon.biz,com.unicon.mapper,com.unicon.entity"/>
+    <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <!--	<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>-->
+        <!--	<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>-->
+        <!--	<property name="username" value="JX190202"/>-->
+        <!--	<property name="password" value="JX190202"/>-->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://101.37.12.72:3306/root"/>
+        <property name="username" value="root"/>
+        <property name="password" value="!Xyp2451752454"/>
+    </bean>
+    <!--配置sqlSessionFactoryBean-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="myDataSource"/>
+        <property name="mapperLocations" value="classpath:*/*.xml"/>
+    </bean>
+    <!--配置MapperScannerConfigurer-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+        <property name="basePackage" value="com.unicon"/>
+        <!--		<property name="annotationClass" value="com.annotation.IUserDao1"/>-->
+    </bean>
 
-
-
-
-
-
-
-
-	<!--注解方式-->
-	<!--启动扫描器-->
-<!--<context:component-scan base-package="Springtest"></context:component-scan>-->
-
-<!--非注解方式-->
-<!--	<bean id="example" class="Springtest.Example"/>-->
-<!--	<bean id="Computer" class="Springtest.Computer">-->
-<!--		<property name="hdd" value="111"></property>-->
-<!--		<property name="mainboard" value="aaa"></property>-->
-<!--		<property name="ram" value="vvv"></property>-->
-<!--	</bean>-->
-<!--	<bean id="MobilePhone" class="Springtest.MobilePhone">-->
-<!--		<constructor-arg name="cpu" value="office"></constructor-arg>-->
-<!--		<constructor-arg name="ram" value="nihao"></constructor-arg>-->
-<!--	</bean>-->
-
-<!--	<bean id="Student" class="Springtest.Student">-->
-<!--		<property name="computer" ref="Computer"></property>-->
-<!--		<property name="phone" ref="MobilePhone"></property>-->
-<!--		<property name="stuname" value="xiaowang"></property>-->
-<!--	</bean>-->
-<!--	<util:properties id="db" location="classpath:Properties.Properties">-->
-
-<!--	</util:properties>-->
-<!--	<bean id="Message" class="Springtest.Message">-->
-<!--		<property name="username" value="#{db.uname}"></property>-->
-<!--		<property name="someList">-->
-<!--			<list>-->
-<!--				<value>111</value>-->
-<!--				<value>222</value>-->
-<!--				<value>333</value>-->
-<!--			</list>-->
-<!--		</property>-->
-<!--		<property name="someSet">-->
-<!--			<set>-->
-<!--				<value>111</value>-->
-<!--				<value>222</value>-->
-<!--				<value>333</value>-->
-<!--			</set>-->
-<!--		</property>-->
-<!--		<property name="someMap">-->
-<!--			<map>-->
-<!--				<entry key="11" value="aaa"></entry>-->
-<!--				<entry key="12" value="bbb"></entry>-->
-<!--			</map>-->
-<!--		</property>-->
-<!--		<property name="someProps">-->
-<!--			<props>-->
-<!--				<prop key="uname" >hqf</prop>-->
-<!--				<prop key="password" >hqf</prop>-->
-<!--				<prop key="url" >jdbc:oracle:thin:localhost:1521:orcl</prop>-->
-<!--			</props>-->
-<!--		</property>-->
-<!--	</bean>-->
-
-
-
-
-
-
-
-
-<!--老师代码-->
-<!--		<property name=""-->
-
-
-
-		<!--
-		<bean id="example" class="org.great.Example" scope="prototype" init-method="myinit" destroy-method="mydestroy"/>
--->
-
-<!--	<alias name="example" alias="e" />-->
-<!--	<alias name="example" alias="e2" />-->
-
-<!--	&lt;!&ndash;setter注入&ndash;&gt;-->
-<!--	<bean id="computer" class="org.great.Computer">-->
-<!--		<property name="mainboard" value="华硕" />-->
-<!--		<property name="hdd" value="希捷" />-->
-<!--		<property name="ram" value="金士顿" />-->
-<!--	</bean>-->
-
-<!--	&lt;!&ndash;构造方法注入&ndash;&gt;-->
-<!--	<bean id="mobilePhone" class="org.great.ioc.MobilePhone">-->
-<!--		<constructor-arg index="0" value="A10" />-->
-<!--		<constructor-arg index="1" value="2G" />-->
-<!--	</bean>-->
-
-	<!-- 自动装配 -->
-<!--	<bean id="student" class="org.great.Student"  autowire="byType">-->
-<!--		-->
-<!--		<property name="stuname" value="张三" />-->
-<!--&lt;!&ndash;		<property name="computer"  ref="computer"/>&ndash;&gt;-->
-<!--&lt;!&ndash;		<property name="phone"  ref="mobilePhone"/>&ndash;&gt;-->
-<!--		-->
-<!--	</bean>-->
-<!--	-->
-<!--	-->
-<!--	<bean id="message" class="org.great.ioc.Message">-->
-<!--		<property name="success" value="true" />-->
-<!--		<property name="id">-->
-<!--			<value>1</value>-->
-<!--		</property>-->
-<!--		<property name="someList">-->
-<!--			<list>-->
-<!--				<value>福州</value>-->
-<!--				<value>厦门</value>-->
-<!--				<value>泉州</value>-->
-<!--				<value>莆田</value>-->
-<!--				<value>漳州</value>-->
-<!--				<value>龙岩</value>-->
-<!--			</list>-->
-<!--		</property>-->
-<!--		<property name="someSet">-->
-<!--			<set>-->
-<!--				<value>张三</value>-->
-<!--				<value>李四</value>-->
-<!--				<value>王五</value>-->
-<!--			</set>-->
-<!--		</property>-->
-<!--		<property name="someMap">-->
-<!--			<map>   -->
-<!--				<entry key="0591" value="福州" />-->
-<!--				<entry key="0898" value="海南" />-->
-<!--				<entry key="0592" value="厦门" />-->
-<!--			</map>-->
-<!--		</property>-->
-<!--		<property name="someProps">-->
-<!--			<props>    -->
-<!--				<prop key="username">root</prop>-->
-<!--				<prop key="password">1234</prop>-->
-<!--			</props>-->
-<!--		</property>-->
-<!--		<property name="username" value="#{db.user}" />-->
-<!--		-->
-<!--		<property name="password" >-->
-<!--			<null />-->
-<!--		</property>-->
-<!--	</bean>-->
-<!--	-->
-<!--	<util:properties id="db" location="classpath:db.properties" />-->
-<!--	-->
-<!--	&lt;!&ndash; 集合引用 &ndash;&gt;-->
-<!--	<util:list id="langList">-->
-<!--		<value>Java</value>-->
-<!--		<value>C++</value>-->
-<!--		<value>PHP</value>-->
-<!--	</util:list>-->
-<!--	<bean id="message2" class="org.great.ioc.Message2">-->
-<!--		<property name="langs" ref="langList" />-->
-<!--	</bean>-->
-	
-
-	<!-- 注解扫描 -->
-<!--	<context:component-scan base-package="org.great" />-->
-<!--	-->
-<!--<util:properties id="const" location="classpath:const.properties" />-->
-	
 
 </beans>
