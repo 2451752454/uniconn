@@ -5,6 +5,7 @@ import com.unicon.entity.TB_FILE;
 
 
 import com.unicon.mapper.IuserMapper;
+import com.unicon.mapper.ShopMapper;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -17,6 +18,8 @@ import java.util.List;
 public class UserBiz implements IuserBiz {
 	@Resource
 	private IuserMapper iuserMapper;
+	@Resource
+	private ShopMapper shopMapper;
 
 
 //	@Override
@@ -82,6 +85,11 @@ public class UserBiz implements IuserBiz {
 		List<TB_USER> list = iuserMapper.login(TB_USER);
 		System.out.println(list.size());
 		return list;
+	}
+
+	@Override
+	public List<MUEU> MENU() throws SQLException, IOException {
+		return shopMapper.MENU();
 	}
 //	@Override
 //	public List<TB_USER> selectUsers(TB_USER TB_USER) throws SQLException, IOException {
