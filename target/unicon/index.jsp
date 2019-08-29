@@ -131,5 +131,6 @@
 </div>
 <script type="text/javascript" src=<%=path+"/index/js/style.js"%>></script>
 </form>
+
 </body>
 </html>

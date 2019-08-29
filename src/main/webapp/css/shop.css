@@ -1,0 +1,66 @@
+#accordion{
+    width: 200px;
+}
+#mydiv{
+    margin-left: 180px;
+    width: 1200px;
+}
+#m{
+    margin-left: 50px;
+}
+#one{
+    margin-left: 33px;
+}
+#two{
+    margin-left: 29px;
+}
+#tre{
+    margin-left: 29px;
+}
+#four{
+    margin-left: 29px;
+}
+#five{
+    margin-left: 29px;
+}
+.a{
+    width: 100%;
+    margin-left: 60px;
+}
+.im{
+    width: 200px;
+}
+.ul{
+    width: 100%;
+}
+.g{
+    width: 100%;
+}
+.caption{
+    width: 100%;
+    text-align: center;
+}
+li{
+    text-align: center;
+}
+h4{
+    width: 100%;
+    text-align: center;
+}
+#navigation{
+    background-color:lightyellow;
+}
+#input{
+    width: 400px;
+}
+#span{
+    margin-left: 10px;
+}
+#welcome{
+    font-size: smaller;
+}
+.img{
+    margin-left: 50px;
+    width: 150px;
+    height: 100px;
+}

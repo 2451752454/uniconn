@@ -20,6 +20,7 @@ public interface IuserBiz {
 //	public List<MUEU> findAll1();
 //	public List<MUEU> findAll2(MUEU MUEU);
 	public List<TB_USER> login(TB_USER TB_USER) throws  SQLException, IOException;
+	public List<MUEU> MENU()throws  SQLException, IOException;
 //	public List<TB_USER> selectUsers(TB_USER TB_USER) throws SQLException, IOException;
 //	public int resign(TB_USER TB_USER) throws SQLException, IOException;
 

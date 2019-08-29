@@ -5,6 +5,7 @@
 %>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -131,5 +132,6 @@
 </div>
 <script type="text/javascript" src=<%=path+"/index/js/style.js"%>></script>
 </form>
+
 </body>
 </html>
