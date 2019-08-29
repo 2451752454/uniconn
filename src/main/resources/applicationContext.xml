@@ -17,15 +17,11 @@
     <!--数据库连接-->
     <context:component-scan base-package="com.unicon.action,com.unicon.biz,com.unicon.mapper,com.unicon.entity"/>
     <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <!--	<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>-->
-        <!--	<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>-->
-        <!--	<property name="username" value="JX190202"/>-->
-        <!--	<property name="password" value="JX190202"/>-->
+
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://101.37.12.72:3306/root"/>
         <property name="username" value="root"/>
         <property name="password" value="!Xyp2451752454"/>
-
 
     </bean>
     <!--配置sqlSessionFactoryBean-->
@@ -39,10 +35,6 @@
         <property name="basePackage" value="com.unicon"/>
         <!--		<property name="annotationClass" value="com.annotation.IUserDao1"/>-->
     </bean>
-
-
-
-
 
 
 </beans>
