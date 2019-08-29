@@ -26,6 +26,7 @@
         <property name="username" value="root"/>
         <property name="password" value="!Xyp2451752454"/>
 
+
     </bean>
     <!--配置sqlSessionFactoryBean-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
