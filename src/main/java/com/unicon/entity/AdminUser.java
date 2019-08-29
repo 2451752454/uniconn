@@ -1,8 +1,11 @@
 package com.unicon.entity;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @Author xyp
  */
+@Component
 public class AdminUser {
     private int IDENTITYCARDID;
     private String AdminUserAccount;
