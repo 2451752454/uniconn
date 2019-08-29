@@ -25,6 +25,7 @@
         <property name="url" value="jdbc:mysql://101.37.12.72:3306/root"/>
         <property name="username" value="root"/>
         <property name="password" value="!Xyp2451752454"/>
+
     </bean>
     <!--配置sqlSessionFactoryBean-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
