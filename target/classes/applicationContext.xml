@@ -203,7 +203,7 @@
 <!--	<bean id="message2" class="org.great.ioc.Message2">-->
 <!--		<property name="langs" ref="langList" />-->
 <!--	</bean>-->
-	
+
 
 	<!-- 注解扫描 -->
 <!--	<context:component-scan base-package="org.great" />-->
