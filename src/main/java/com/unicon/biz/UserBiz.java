@@ -1,16 +1,15 @@
 package com.unicon.biz;
+import com.unicon.entity.IDENTITYCARD_TABLE;
+import com.unicon.entity.PHONE_CARD_TABLE;
 import com.unicon.entity.TB_USER;
-import com.unicon.entity.MUEU;
-import com.unicon.entity.TB_FILE;
 
 
+import com.unicon.entity.MYUSER;
 import com.unicon.mapper.IuserMapper;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -75,6 +74,8 @@ public class UserBiz implements IuserBiz {
 //	}
 //
 //
+
+
 	@Override
 	public List<TB_USER> login(TB_USER TB_USER) throws SQLException, IOException {
 		System.out.println("调用");
@@ -83,6 +84,41 @@ public class UserBiz implements IuserBiz {
 		System.out.println(list.size());
 		return list;
 	}
+	@Override
+	public MYUSER login1(MYUSER muser) throws  SQLException, IOException {
+		System.out.println("调用测试的biz");
+		System.out.println(iuserMapper);
+		System.out.println(muser.getIDENTITYCARDID());
+		System.out.println(muser.getUSERROLEID());
+		MYUSER muser1 = iuserMapper.login1(muser);
+		System.out.printf("muser1");
+		return muser1;
+	}
+
+	@Override
+	public PHONE_CARD_TABLE phoneLogin(PHONE_CARD_TABLE phoneCard) throws SQLException, IOException {
+		System.out.println("电子卡登陆biz：");
+		System.out.println("账号："+phoneCard.getPHONECARDNUMBER());
+		System.out.println("密码："+phoneCard.getPHONECARDPASSWORD());
+		PHONE_CARD_TABLE loginCard = iuserMapper.phoneLogin(phoneCard);
+		System.out.println("登陆后得账户："+loginCard);
+		return loginCard;
+	}
+
+
+
+	@Override
+	public MYUSER Loos(PHONE_CARD_TABLE PHONE_CARD_TABLE) throws SQLException, IOException {
+		MYUSER loginUser1 = iuserMapper.Loos(PHONE_CARD_TABLE);
+		return loginUser1;
+	}
+
+	@Override
+	public IDENTITYCARD_TABLE phoneLoginUser(PHONE_CARD_TABLE PHONE_CARD_TABLE) throws SQLException, IOException {
+		IDENTITYCARD_TABLE loginUserIDCard = iuserMapper.phoneLoginUser(PHONE_CARD_TABLE);
+		return loginUserIDCard;
+	}
+
 //	@Override
 //	public List<TB_USER> selectUsers(TB_USER TB_USER) throws SQLException, IOException {
 //		List<TB_USER> list = iuserMapper.selectUsers(TB_USER);

@@ -14,6 +14,25 @@
 	<select id="login" resultType="com.unicon.entity.TB_USER" parameterType="com.unicon.entity.TB_USER">
     		select USERNAME,USERPASSWORD from TB_USER where USERNAME=#{USERNAME} and USERPASSWORD=#{USERPASSWORD}
     	</select>
+
+	<select id="login1" resultType="com.unicon.entity.MYUSER" parameterType="com.unicon.entity.MYUSER">
+			SELECT * from MYUSER where IDENTITYCARDID = #{IDENTITYCARDID} and USERROLEID = #{USERROLEID}
+	</select>
+
+	<select id="phoneLogin" resultType="com.unicon.entity.PHONE_CARD_TABLE" parameterType="com.unicon.entity.PHONE_CARD_TABLE">
+		SELECT * FROM PHONE_CARD_TABLE WHERE PHONECARDNUMBER = #{PHONECARDNUMBER} AND PHONECARDPASSWORD =#{PHONECARDPASSWORD}
+	</select>
+
+	<select id="Loos" resultType="com.unicon.entity.MYUSER" parameterType="com.unicon.entity.PHONE_CARD_TABLE">
+		SELECT B.* FROM PHONE_CARD_TABLE A, MYUSER B WHERE A.USERID = B.USERID AND
+		A.PHONECARDNUMBER = #{PHONECARDNUMBER} AND A.PHONECARDPASSWORD =#{PHONECARDPASSWORD}
+	</select>
+
+	<select id="phoneLoginUser" resultType="com.unicon.entity.IDENTITYCARD_TABLE" parameterType="com.unicon.entity.PHONE_CARD_TABLE">
+		SELECT C.* FROM PHONE_CARD_TABLE A,MYUSER B,IDENTITYCARD_TABLE C
+		WHERE A.USERID = B.USERID AND B.IDENTITYCARDID = C.IDENTITYCARDID AND
+		A.PHONECARDNUMBER = #{PHONECARDNUMBER} AND A.PHONECARDPASSWORD =#{PHONECARDPASSWORD}
+	</select>
 <!--	<select id="findAll1" resultType="com.unicon.entity.MUEU" resultMap="menuRoleMap">-->
 <!--    		select tb_jurisdiction.jurisdictionid JURISDICTIONID, tb_jurisdiction.jurisdictionname JURISDICTIONNAME from TB_RJ, TB_JURISDICTION WHERE tb_rj.jurisdictionid = tb_jurisdiction.jurisdictionid and tb_rj.roleid = 1-->
 <!--    	</select>-->

@@ -1,0 +1,27 @@
+
+#historyintegel tr,#historyintegel td,#historyintegel th{
+  border:1px solid black;
+  width: 150px;
+  text-align: center;
+}
+
+
+/* 两个表格 */
+#tableintegel,#historyintegel{
+  margin: auto;
+}
+
+/* 剩余积分a标签 */
+#a_residueIntegel{
+  text-decoration:none;
+  color: red;
+  font-size:20px;
+  cursor:auto;
+}
+iframe{
+  margin-top: 3%;
+  width: 100%;
+  height: 700px;
+  box-sizing: border-box;
+
+}

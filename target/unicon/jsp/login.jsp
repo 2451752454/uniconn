@@ -25,17 +25,17 @@
 </head>
 <body>
 <div id="main">
-    <form class="layui-form" action="jsp/login.action" method="post">
+    <form class="layui-form" action="jsp/phoneLogin.action" method="post">
         <div class="layui-form-item">
             <label class="layui-form-label">账号</label>
             <div class="layui-input-block">
-                <input type="text" name="name" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
+                <input type="text" name="PHONECARDNUMBER" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">密码</label>
             <div class="layui-input-inline">
-                <input type="password" name="pwd" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="password" name="PHONECARDPASSWORD" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
             </div>
         </div>
 
@@ -55,6 +55,13 @@
             </div>
         </div>
     </form>
+
+
+    <form class="menu" action="" method="post">
+
+
+    </form>
+
 </div>
 <script>
     //Demo

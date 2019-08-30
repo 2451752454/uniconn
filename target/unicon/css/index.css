@@ -1,0 +1,46 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+.alert_windows{
+  display:none;
+  position:absolute;
+  /* 优先级 */
+  z-index:999;
+  width:600px;
+  height:400px;
+  background:#ffffcc;
+}
+
+.alert_windows span{
+  float:right;
+  width:30px;
+  height:31px;
+  text-align:center;
+  font:15px/30px Microsoft Yahei;
+  cursor:pointer;
+  color:#333;
+  background:lightblue;
+}
+
+.alert_windows span:hover{
+  color:#EEE;
+  background:red;
+}
+
+.alert_windows h2{
+  background: #999999;
+}
+
+.shadow{
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:998;
+    background-color:#000;
+    opacity:0.6;
+    display:none;
+}

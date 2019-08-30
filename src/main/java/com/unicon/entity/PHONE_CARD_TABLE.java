@@ -1,0 +1,165 @@
+package com.unicon.entity;
+
+public class PHONE_CARD_TABLE {
+    private int PHONECARDID;             //自增id
+    private int USERID;                 //用户id
+    private String PHONECARDNUMBER;     //手机号
+    private String PHONECARDPASSWORD;   //密码
+    private String PHONECARDAPPLYTIME;
+    private String PHONECARDCHEAKTIME;
+    private String PHONECARDSELLTIME;
+    private int PHONECARDSTATU;         //卡状态
+    private int ADMINISTRATORIDONE;     //
+    private int ADMINISTRATORIDTWO;
+    private String PHONECARDMONEY;
+    private String PHONECARDCOMMUNICATETIME;
+    private int PHONECARDCOMBOID;
+    private String PHONECARDINTEGRAL;
+    private String PHONECARDTABLE2;     //备用
+
+    public PHONE_CARD_TABLE(int PHONECARDID, int USERID, String PHONECARDNUMBER, String PHONECARDPASSWORD, String PHONECARDAPPLYTIME, String PHONECARDCHEAKTIME, String PHONECARDSELLTIME, int PHONECARDSTATU, int ADMINISTRATORIDONE, int ADMINISTRATORIDTWO, String PHONECARDMONEY, String PHONECARDCOMMUNICATETIME, int PHONECARDCOMBOID, String PHONECARDINTEGRAL, String PHONECARDTABLE2) {
+        this.PHONECARDID = PHONECARDID;
+        this.USERID = USERID;
+        this.PHONECARDNUMBER = PHONECARDNUMBER;
+        this.PHONECARDPASSWORD = PHONECARDPASSWORD;
+        this.PHONECARDAPPLYTIME = PHONECARDAPPLYTIME;
+        this.PHONECARDCHEAKTIME = PHONECARDCHEAKTIME;
+        this.PHONECARDSELLTIME = PHONECARDSELLTIME;
+        this.PHONECARDSTATU = PHONECARDSTATU;
+        this.ADMINISTRATORIDONE = ADMINISTRATORIDONE;
+        this.ADMINISTRATORIDTWO = ADMINISTRATORIDTWO;
+        this.PHONECARDMONEY = PHONECARDMONEY;
+        this.PHONECARDCOMMUNICATETIME = PHONECARDCOMMUNICATETIME;
+        this.PHONECARDCOMBOID = PHONECARDCOMBOID;
+        this.PHONECARDINTEGRAL = PHONECARDINTEGRAL;
+        this.PHONECARDTABLE2 = PHONECARDTABLE2;
+    }
+
+    public PHONE_CARD_TABLE() {
+    }
+
+    public PHONE_CARD_TABLE(String PHONECARDNUMBER, String PHONECARDPASSWORD) {
+        this.PHONECARDNUMBER = PHONECARDNUMBER;
+        this.PHONECARDPASSWORD = PHONECARDPASSWORD;
+    }
+
+    public int getPHONECARDID() {
+        return PHONECARDID;
+    }
+
+    public void setPHONECARDID(int PHONECARDID) {
+        this.PHONECARDID = PHONECARDID;
+    }
+
+    public int getUSERID() {
+        return USERID;
+    }
+
+    public void setUSERID(int USERID) {
+        this.USERID = USERID;
+    }
+
+    public String getPHONECARDNUMBER() {
+        return PHONECARDNUMBER;
+    }
+
+    public void setPHONECARDNUMBER(String PHONECARDNUMBER) {
+        this.PHONECARDNUMBER = PHONECARDNUMBER;
+    }
+
+    public String getPHONECARDPASSWORD() {
+        return PHONECARDPASSWORD;
+    }
+
+    public void setPHONECARDPASSWORD(String PHONECARDPASSWORD) {
+        this.PHONECARDPASSWORD = PHONECARDPASSWORD;
+    }
+
+    public String getPHONECARDAPPLYTIME() {
+        return PHONECARDAPPLYTIME;
+    }
+
+    public void setPHONECARDAPPLYTIME(String PHONECARDAPPLYTIME) {
+        this.PHONECARDAPPLYTIME = PHONECARDAPPLYTIME;
+    }
+
+    public String getPHONECARDCHEAKTIME() {
+        return PHONECARDCHEAKTIME;
+    }
+
+    public void setPHONECARDCHEAKTIME(String PHONECARDCHEAKTIME) {
+        this.PHONECARDCHEAKTIME = PHONECARDCHEAKTIME;
+    }
+
+    public String getPHONECARDSELLTIME() {
+        return PHONECARDSELLTIME;
+    }
+
+    public void setPHONECARDSELLTIME(String PHONECARDSELLTIME) {
+        this.PHONECARDSELLTIME = PHONECARDSELLTIME;
+    }
+
+    public int getPHONECARDSTATU() {
+        return PHONECARDSTATU;
+    }
+
+    public void setPHONECARDSTATU(int PHONECARDSTATU) {
+        this.PHONECARDSTATU = PHONECARDSTATU;
+    }
+
+    public int getADMINISTRATORIDONE() {
+        return ADMINISTRATORIDONE;
+    }
+
+    public void setADMINISTRATORIDONE(int ADMINISTRATORIDONE) {
+        this.ADMINISTRATORIDONE = ADMINISTRATORIDONE;
+    }
+
+    public int getADMINISTRATORIDTWO() {
+        return ADMINISTRATORIDTWO;
+    }
+
+    public void setADMINISTRATORIDTWO(int ADMINISTRATORIDTWO) {
+        this.ADMINISTRATORIDTWO = ADMINISTRATORIDTWO;
+    }
+
+    public String getPHONECARDMONEY() {
+        return PHONECARDMONEY;
+    }
+
+    public void setPHONECARDMONEY(String PHONECARDMONEY) {
+        this.PHONECARDMONEY = PHONECARDMONEY;
+    }
+
+    public String getPHONECARDCOMMUNICATETIME() {
+        return PHONECARDCOMMUNICATETIME;
+    }
+
+    public void setPHONECARDCOMMUNICATETIME(String PHONECARDCOMMUNICATETIME) {
+        this.PHONECARDCOMMUNICATETIME = PHONECARDCOMMUNICATETIME;
+    }
+
+    public int getPHONECARDCOMBOID() {
+        return PHONECARDCOMBOID;
+    }
+
+    public void setPHONECARDCOMBOID(int PHONECARDCOMBOID) {
+        this.PHONECARDCOMBOID = PHONECARDCOMBOID;
+    }
+
+    public String getPHONECARDINTEGRAL() {
+        return PHONECARDINTEGRAL;
+    }
+
+    public void setPHONECARDINTEGRAL(String PHONECARDINTEGRAL) {
+        this.PHONECARDINTEGRAL = PHONECARDINTEGRAL;
+    }
+
+    public String getPHONECARDTABLE2() {
+        return PHONECARDTABLE2;
+    }
+
+    public void setPHONECARDTABLE2(String PHONECARDTABLE2) {
+        this.PHONECARDTABLE2 = PHONECARDTABLE2;
+    }
+}

@@ -1,34 +1,86 @@
 package com.unicon.action;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.unicon.biz.IuserBiz;
 
-import com.unicon.entity.TB_USER;
-import com.unicon.entity.Users;
+import com.unicon.entity.*;
+import com.unicon.tool.AliyunSmsUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.*;
-import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-@Controller@Transactional@RequestMapping("/jsp")
+@Controller@Transactional@RequestMapping("/jsp1")
 public class LoginAction  {
 	@Resource
     private IuserBiz userBiz;
 	private Users users;
 	private TB_USER TB_USER;
+	private PHONE_CARD_TABLE phoneCard;
+	private MYUSER muser;
 	private String remsg;
 	public File[] file1;
 	public List<String> file1FileName;
 	private HashMap<String, Object> menu;
+
+
+	Map<String,Object> map=new HashMap();
+	AliyunSmsUtils result = new  AliyunSmsUtils();
+
+
+	@RequestMapping("/phoneLogin.action")
+	public ModelAndView login1(HttpServletRequest request,@RequestParam(value="PHONECARDNUMBER")String PHONECARDNUMBER,String PHONECARDPASSWORD)
+			throws IOException,SQLException {
+		System.out.println("测试登陆action");
+		System.out.println("action收到得值："+PHONECARDNUMBER);
+		System.out.println("action收到得值："+PHONECARDPASSWORD);
+        phoneCard = new PHONE_CARD_TABLE(PHONECARDNUMBER,PHONECARDPASSWORD);
+		//登陆的手机卡信息
+        PHONE_CARD_TABLE loginPhoneUser = userBiz.phoneLogin(phoneCard);
+
+		ModelAndView mv = null;
+		if(loginPhoneUser != null){
+			System.out.println("登陆后得action用户id:"+loginPhoneUser.getUSERID());
+			mv = new ModelAndView("front_Main");
+			int loginUserID = loginPhoneUser.getUSERID();
+			HttpSession session = request.getSession();
+			session.setAttribute("loginPhoneUser",loginPhoneUser);
+			session.setAttribute("loginPhoneUserID",loginUserID);
+			//登陆的用户
+			MYUSER loginPhoneUser1 = userBiz.Loos(loginPhoneUser);
+			//登陆的用户身份证
+			session.setAttribute("loginIDENTITYCARDID",loginPhoneUser1.getIDENTITYCARDID());
+
+			IDENTITYCARD_TABLE loginPhoneUserIDCard = userBiz.phoneLoginUser(loginPhoneUser);
+            //身份证信息
+			session.setAttribute("loginPhoneUserCardID",loginPhoneUserIDCard);
+            //身份证里的姓名
+			session.setAttribute("loginPhoneUserCardIDName",loginPhoneUserIDCard.getUSERNAME());
+			//身份证自增id
+			session.setAttribute("loginPhoneUserCardIDENTITYCARDID",loginPhoneUserIDCard.getIDENTITYCARDID());
+		}else{
+			mv = new ModelAndView("error");
+		}
+		System.out.printf("loginAction测试返回:"+mv);
+		return mv;
+	}
+
+
+
+
+
 	@RequestMapping("/login.action")
 	public ModelAndView execute(HttpServletRequest request,
 								@RequestParam(value="name", required=true, defaultValue="empty")String name,
@@ -38,6 +90,8 @@ public class LoginAction  {
         List<TB_USER> list =  userBiz.login(TB_USER);
 		ModelAndView mav = null;
 		if(list.size()>0) {
+
+
 //			menu = userBiz.findAll();
 //			HttpSession session = request.getSession();
 //			session.setAttribute("uname", name);
@@ -45,6 +99,17 @@ public class LoginAction  {
 //			mav = new ModelAndView("back");
 		}
 		return mav;
+	}
+
+	@RequestMapping(value="/userinfo3.action", method= RequestMethod.POST, produces="application/json;charset=utf-8")
+	@ResponseBody
+	public  Map<String,Object>  sendcode(@RequestParam(value="phone",defaultValue="") String phone,HttpServletRequest request)throws ClientException, InterruptedException {
+		System.out.println("hello++++++++");
+		Map<String, TestCodeInfor> ff=result.msagee(phone);
+		System.out.println("66666");
+		map.put("手机号",phone);
+		return map; //可通过String类型返回信息
+
 	}
 
 
